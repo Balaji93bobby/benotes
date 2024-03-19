@@ -114,7 +114,8 @@ RUN if [ "$USE_COMPOSER" = "true" ] ; \
     fi
 RUN php artisan jwt:secret -n --force
 RUN php artisan key:generate
-RUN php artisan migrate:fresh --seed
+RUN php artisan migrate:fresh 
+RUN php artisan db:seed
 
 
 USER root
