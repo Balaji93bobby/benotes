@@ -20,7 +20,7 @@ spec:
       initContainers:
       - name: migrate
         image: balaji93bobby/benotes-app:${DOCKER_IMAGE_TAG}
-        command: ['sh', '-c', 'php artisan migrate -n --force', 'php artisan db:seed -n --force']
+        command: ['sh', '-c', 'php artisan migrate:fresh -n --force', 'php artisan db:seed -n --force']
         env:
         - name: DB_HOST
           valueFrom:
