@@ -21,67 +21,14 @@ spec:
       - name: migrate
         image: balaji93bobby/benotes-app:${DOCKER_IMAGE_TAG}
         command: ['sh', '-c', 'php artisan migrate -n --force && php artisan db:seed -n --force']
-        env:
-        - name: DB_HOST
-          valueFrom:
-            secretKeyRef:
-              name: my-secret
-              key: DB_HOST
-        - name: APP_KEY
-          valueFrom:
-            secretKeyRef:
-              name: my-secret
-              key: APP_KEY
-        - name: JWT_TOKEN
-          valueFrom:
-            secretKeyRef:
-              name: my-secret
-              key: JWT_TOKEN
-        - name: DB_USERNAME
-          valueFrom:
-            secretKeyRef:
-              name: my-secret
-              key: DB_USERNAME
-        - name: DB_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: my-secret
-              key: DB_PASSWORD
-        - name: DB_DATABASE
-          valueFrom:
-            secretKeyRef:
-              name: my-secret
-              key: DB_DATABASE
+        envFrom:
+        - secretRef:
+            name: my-secret
       containers:
       - name: benotes-app
         image: balaji93bobby/benotes-app:${DOCKER_IMAGE_TAG}
         ports:
         - containerPort: 80
-        env:
-        - name: DB_HOST
-          value: mysql-service
-        - name: DB_USERNAME
-          valueFrom:
-            secretKeyRef:
-              name: my-secret
-              key: DB_USERNAME
-        - name: DB_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: my-secret
-              key: DB_PASSWORD
-        - name: DB_DATABASE
-          valueFrom:
-            secretKeyRef:
-              name: my-secret
-              key: DB_DATABASE
-        - name: APP_KEY
-          valueFrom:
-            secretKeyRef:
-              name: my-secret
-              key: APP_KEY
-        - name: JWT_TOKEN
-          valueFrom:
-            secretKeyRef:
-              name: my-secret
-              key: JWT_TOKEN
+        envFrom:
+        - secretRef:
+            name: my-secret
