@@ -20,7 +20,7 @@ spec:
       initContainers:
       - name: migrate
         image: balaji93bobby/benotes-app:${DOCKER_IMAGE_TAG}
-        command: ['sh', '-c', 'php artisan key:generate', 'php artisan jwt:token', 'php artisan migrate', 'php artisan db:seed']
+        command: ['sh', '-c', 'php artisan key:generate', 'php artisan jwt:token -n --force', 'php artisan migrate', 'php artisan db:seed']
         env:
         - name: DB_HOST
           value: mysql-service
