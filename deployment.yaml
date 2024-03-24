@@ -27,12 +27,12 @@ spec:
         - name: DB_USERNAME
           valueFrom:
             secretKeyRef:
-              name: mysql-secret
+              name: my-secret
               key: DB_USERNAME
         - name: DB_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: mysql-secret
+              name: my-secret
               key: DB_PASSWORD
       containers:
       - name: benotes-app
@@ -45,10 +45,10 @@ spec:
         - name: DB_USERNAME
           valueFrom:
             secretKeyRef:
-              name: mysql-secret
+              name: my-secret
               key: DB_USERNAME
         - name: DB_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: mysql-secret
+              name: my-secret
               key: DB_PASSWORD
