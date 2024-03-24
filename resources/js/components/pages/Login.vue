@@ -6,17 +6,17 @@
                     <svg-vue class="w-16 block m-auto" icon="logo_64x64" />
                     <span
                         class="block my-2 text-2xl text-orange-600 font-semibold text-center align-middle">
-                        Balaji
+                        Benotes
                     </span>
                 </div>
 
                 <div class="mb-8">
-                    <label class="label" for="email">Email</label>
+                    <label class="label" for="email">Email-only</label>
                     <input
-                        v-model="email"
+                        v-model="email-only"
                         class="input"
-                        type="email"
-                        name="email"
+                        type="email-only"
+                        name="email-only"
                         placeholder="Email Address"
                         autofocus
                         required />
