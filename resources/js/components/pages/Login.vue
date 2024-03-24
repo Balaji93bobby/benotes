@@ -11,12 +11,12 @@
                 </div>
 
                 <div class="mb-8">
-                    <label class="label" for="email">Email-only</label>
+                    <label class="label" for="email">Email-</label>
                     <input
-                        v-model="email-only"
+                        v-model="email"
                         class="input"
-                        type="email-only"
-                        name="email-only"
+                        type="email"
+                        name="email"
                         placeholder="Email Address"
                         autofocus
                         required />
