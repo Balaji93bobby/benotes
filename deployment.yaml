@@ -21,19 +21,9 @@ spec:
       - name: migrate
         image: balaji93bobby/benotes-app:${DOCKER_IMAGE_TAG}
         command: ['sh', '-c', 'php artisan key:generate', 'php artisan jwt:token -n --force', 'php artisan migrate', 'php artisan db:seed']
-        env:
-        - name: DB_HOST
-          value: mysql-service
-        - name: DB_USERNAME
-          valueFrom:
-            secretKeyRef:
-              name: my-secret
-              key: DB_USERNAME
-        - name: DB_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: my-secret
-              key: DB_PASSWORD
+        envFrom:
+        - configMapRef:
+            name: my-config
       containers:
       - name: benotes-app
         image: balaji93bobby/benotes-app:${DOCKER_IMAGE_TAG}
