@@ -38,7 +38,7 @@ spec:
       - name: benotes-app
         image: balaji93bobby/benotes-app:${DOCKER_IMAGE_TAG}
         ports:
-        - containerPort: 8000
+        - containerPort: 80
         env:
         - name: DB_HOST
           value: mysql-service
