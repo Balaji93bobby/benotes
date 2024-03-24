@@ -27,6 +27,16 @@ spec:
             secretKeyRef:
               name: my-secret
               key: DB_HOST
+        - name: APP_KEY
+          valueFrom:
+            secretKeyRef:
+              name: my-secret
+              key: APP_KEY
+        - name: JWT_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: my-secret
+              key: JWT_TOKEN
         - name: DB_USERNAME
           valueFrom:
             secretKeyRef:
@@ -65,3 +75,13 @@ spec:
             secretKeyRef:
               name: my-secret
               key: DB_DATABASE
+        - name: APP_KEY
+          valueFrom:
+            secretKeyRef:
+              name: my-secret
+              key: APP_KEY
+        - name: JWT_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: my-secret
+              key: JWT_TOKEN
