@@ -112,10 +112,6 @@ RUN if [ "$USE_COMPOSER" = "true" ] ; \
     then \
     composer install --prefer-dist --no-interaction --no-progress ; \
     fi
-RUN php artisan jwt:secret -n --force
-RUN php artisan key:generate
-RUN php artisan migrate:fresh 
-RUN php artisan db:seed
 
 
 USER root
