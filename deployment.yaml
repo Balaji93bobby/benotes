@@ -20,7 +20,7 @@ spec:
       initContainers:
       - name: migrate
         image: balaji93bobby/benotes-app:${DOCKER_IMAGE_TAG}
-        command: ['sh', '-c', 'php artisan migrate', 'php artisan db:seed']
+        command: ['sh', '-c', 'php artisan migrate:fresh --seed']
         envFrom:
         - secretRef:
             name: my-secret
