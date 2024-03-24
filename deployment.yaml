@@ -21,9 +21,27 @@ spec:
       - name: migrate
         image: balaji93bobby/benotes-app:${DOCKER_IMAGE_TAG}
         command: ['sh', '-c', 'php artisan migrate:fresh --seed']
-        envFrom:
-        - secretRef:
-            name: my-secret
+        env:
+        - name: DB_HOST
+          valueFrom:
+            secretKeyRef:
+              name: my-secret
+              key: DB_HOST
+        - name: DB_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: my-secret
+              key: DB_USERNAME
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: my-secret
+              key: DB_PASSWORD
+        - name: DB_DATABASE
+          valueFrom:
+            secretKeyRef:
+              name: my-secret
+              key: DB_DATABASE
       containers:
       - name: benotes-app
         image: balaji93bobby/benotes-app:${DOCKER_IMAGE_TAG}
@@ -42,3 +60,8 @@ spec:
             secretKeyRef:
               name: my-secret
               key: DB_PASSWORD
+        - name: DB_DATABASE
+          valueFrom:
+            secretKeyRef:
+              name: my-secret
+              key: DB_DATABASE
